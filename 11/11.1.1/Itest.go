@@ -158,16 +158,26 @@ func (s *Simple) Set(num int) {
 	s.n = num
 }
 
-func fi(s Simpler) {
-	switch s.(type) {
+func fi(s Simpler) int {
+	switch v := s.(type) {
 	case *Simple:
 		fmt.Println("type is *Simple")
+		return v.n
 	case *RSimple:
 		fmt.Println("type is *RSimple")
+		return v.n
 	default:
 		fmt.Println("other")
+		return 0
 	}
+}
+func gI(a any) int {
+	if v, ok := a.(Simpler); ok {
+		return v.Get()
+	}
+	return 0
 }
 func main() {
 	m()
+
 }
