@@ -1,0 +1,17 @@
+{
+	"FirstName": "y",
+	"LastName": "f",
+	"Addresses": [
+		{
+			"Type": "private",
+			"City": "Aartselaar",
+			"Country": "Belgium"
+		},
+		{
+			"Type": "work",
+			"City": "Boom",
+			"Country": "Belgium"
+		}
+	],
+	"Remark": ""
+}

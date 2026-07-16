@@ -1,4 +1,4 @@
-package main
+package Stack
 
 import (
 	"errors"
@@ -30,17 +30,27 @@ func (s *Stack[T]) Pop() (T, error) {
 	s.data = s.data[:lastIndex]
 	return v, nil
 }
-func main() {
-	var s Stack[int]
-	s.Push(1)
-	s.Push(2)
-	s.Push(3)
-	//栈非空才会弹出
+
+func (s *Stack[T]) String() string {
+	res := ""
 	for !s.IsEmpty() {
-		//err==nil 为正常
-		if v, err := s.Pop(); err == nil {
-			fmt.Printf("%v\t", v)
-		}
+		v, _ := s.Pop()
+		res += fmt.Sprint(v)
 	}
-	unsafe.
+	return res
 }
+
+// func main() {
+// 	var s Stack[int]
+// 	s.Push(1)
+// 	s.Push(2)
+// 	s.Push(3)
+// 	//栈非空才会弹出
+// 	for !s.IsEmpty() {
+// 		//err==nil 为正常
+// 		if v, err := s.Pop(); err == nil {
+// 			fmt.Printf("%v\t", v)
+// 		}
+// 	}
+
+// }
