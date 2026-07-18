@@ -1,12 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/md5"
 	"crypto/rand"
 	"crypto/sha1"
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"io"
 )
@@ -24,8 +26,6 @@ func hash() {
 	//
 	fmt.Printf("Result: %x\n", hasher.Sum(b))
 	fmt.Printf("Result: %d\n", hasher.Sum(b))
-
-	hasher.Reset()
 	data := []byte("We shall overcome!")
 	hasher.Write(data)
 }
@@ -93,3 +93,23 @@ func main() {
 
 	fmt.Println("解密结果：", decrypted)
 }
+
+func j() {
+	var buf bytes.Buffer
+
+	json.NewEncoder(&buf)
+}
+
+/*
+Calling g.
+Printing in g 0
+Printing in g 1
+Printing in g 2
+Printing in g 3
+Panicking!
+Defer in g 3
+Defer in g 2
+Defer in g 1
+Defer in g 0
+Recovered in f 4
+*/

@@ -64,5 +64,6 @@ func t2() {
 	}
 }
 func main() {
+
 	t1()
 }
