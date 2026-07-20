@@ -47,6 +47,7 @@ func main() {
 		wg.Wait()
 		close(result)
 	}()
+	
 	foundIndex := -1
 	for index := range result {
 		foundIndex = index
